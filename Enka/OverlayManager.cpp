@@ -121,7 +121,6 @@ void OverlayManager::showDecisionOverlay(TurnDecisionAction * currentAction)
 
 void OverlayManager::showGeneralOverlay(const std::string & overlayName)
 {
-	// Split to allow for parameter inputs separated by ;
 	std::vector<std::string> splitOverlayName{};
 	std::stringstream sstream(overlayName);
 	std::string part;

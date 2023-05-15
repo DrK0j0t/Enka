@@ -26,13 +26,12 @@ PlayerUpdateResult AIPlayer::update(const float deltaTime, const Player* current
 		return result;
 	}
 
-	// Do nothing more if this is not the current player.
 	if (currentPlayer != this) {
-		// Result will already contain PlayerDidNothing due to the checks above.
+
 		return result;
 	}
 
-	// Delay until
+
 	_delayTimer -= deltaTime;
 	if (_delayTimer <= 0) {
 		resetDelayTimer();
@@ -41,16 +40,16 @@ PlayerUpdateResult AIPlayer::update(const float deltaTime, const Player* current
 		return { PlayerUpdateResultState::PlayerDidNothing, nullptr, -1, nullptr };
 	}
 
-	// If there is no turn action to deal with it means that the player is performing their regular turn
+	
 	if (currentTurnAction == nullptr) {
 		Card* topCard = recentCards->getTopCard();
 		auto action = performTurn(topCard);
-		// Handle special case where the player needs to call UNO simultaneously with playing their card.
+		
 		PlayerUpdateResultState state = action.second.resultState == PlayerUpdateResultState::PlayerCalledUno ? PlayerUpdateResultState::PlayerStartedTurnActionWithUno : PlayerUpdateResultState::PlayerStartedTurnAction;
 		return {state, action.first, action.second.playerIDForResult, nullptr };
 	}
 	else {
-		// Handle the turn action if it is necessary
+		
 		TurnDecisionAction* decisionAction = dynamic_cast<TurnDecisionAction*>(currentTurnAction);
 		if (decisionAction != nullptr) {
 			if (decisionAction->getTimeOut()) {
@@ -210,11 +209,11 @@ PlayerUpdateResult AIPlayer::chooseWildColour(TurnDecisionAction * decisionActio
 		}
 	}
 
-	// No cards, or only wilds, or rare 10% chance: randomly choose colour
+	
 	if (colouredHandCards.empty() || _randomEngine() % 100 > 90) {
 		decisionAction->injectProperty("colourID", _randomEngine() % 4);
 	}
-	else { // Use first coloured card
+	else {
 		decisionAction->injectProperty("colourID", colouredHandCards.at(0)->getColourID());
 	}
 	decisionAction->injectFlagProperty(1);
@@ -246,7 +245,6 @@ PlayerUpdateResult AIPlayer::choosePlayerToSwapWith(TurnDecisionAction * decisio
 
 PlayerUpdateResult AIPlayer::chooseChallengeOrDecline(TurnDecisionAction * decisionAction, const RuleSet* rules)
 {
-	// Always stack a card if it is allowed and available.
 	if (rules->canStackCards()) {
 		auto hand = getHand();
 		auto validCard = std::find_if(hand.begin(), hand.end(), [](Card* card) { return card->getFaceValueID() == 13; });
@@ -261,9 +259,7 @@ PlayerUpdateResult AIPlayer::chooseChallengeOrDecline(TurnDecisionAction * decis
 		}
 	}
 	decisionAction->injectProperty("isChaining", 0);
-	// Randomly choose 50-50 whether to challenge or decline
-	// Don't need to check the no bluffing rule because this method is only called if a valid choice is available
-	// And the AI will ALWAYS choose to stack a card meaning this will never run the random chance of challenge in those cases.
+
 	decisionAction->injectFlagProperty(_randomEngine() % 2);
 
 	return { PlayerUpdateResultState::PlayerDidNothing, nullptr, -1, nullptr };

@@ -7,7 +7,7 @@
 
 CardBackGroupObject::CardBackGroupObject(const sf::Vector2f& initialPosition, const sf::Font& font)
 {
-	// Black background with white border
+	
 	DrawableShape* background = new DrawableShape(new sf::RectangleShape(sf::Vector2f(CARD_WIDTH - 4, CARD_HEIGHT - 4)),
 														sf::Color::Black, sf::Vector2f(2, 2));
 	background->setBorder(2, sf::Color::White);
@@ -25,7 +25,7 @@ CardBackGroupObject::CardBackGroupObject(const sf::Vector2f& initialPosition, co
 	mainText->setOffset(sf::Vector2f(CARD_WIDTH / 2 - mainText->getTextWidth() / 2, CARD_HEIGHT / 2 - 20 / 2));
 	addChild(mainText);
 
-	// ESSENTIAL! This line updates all elements to apply the offset based on a relative position. 
+
 	setPositionWithOffset(initialPosition);
 }
 

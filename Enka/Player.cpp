@@ -87,7 +87,7 @@ std::vector<Card*> Player::getValidMoves(const int curFaceValue, const int curCo
 
 void Player::sortHand()
 {
-	// Sort first by colour and then by faceValue
+	
 	std::sort(_hand.begin(), _hand.end(), [](Card* a, Card* b) { 
 		if(a->getColourID() != b->getColourID()) return a->getColourID() < b->getColourID();
 		else return a->getFaceValueID() < b->getFaceValueID();
@@ -240,23 +240,22 @@ void Player::recalculateCardPositions()
 	int remainingElements = _hand.size();
 	int rowXOffset = _bounds.width / 2 - static_cast<int>(elementsPerRow*(CARD_WIDTH + paddingX) / 2.0);
 
-	// True when there is only one not-full row (used to centre in that row).
 	if (remainingElements < elementsPerRow) {
 		rowXOffset = _bounds.width / 2 - static_cast<int>(remainingElements*(CARD_WIDTH + paddingX) / 2.0);
 	}
 	for (auto card : _hand) {
-		// Apply a visual offset to the hovered card
+
 		int hoverOffset = (card == _hoveredCard) ? -10 : 0;
 		card->setPosition(sf::Vector2i(_bounds.left + rowXOffset + x * (CARD_WIDTH + paddingX), 
 							startY + y * (CARD_HEIGHT + paddingY) + hoverOffset));
 		x++;
 		remainingElements--;
-		// Check for iterating to the next row.
+
 		if (x >= elementsPerRow) {
 			x = 0;
 			y++;
 			rowXOffset = _bounds.width / 2 - static_cast<int>(elementsPerRow*(CARD_WIDTH + paddingX) / 2.0);
-			// Once a not full row has been found (used to centre in that row).
+
 			if (remainingElements < elementsPerRow) {
 				rowXOffset = _bounds.width / 2 - static_cast<int>(remainingElements*(CARD_WIDTH + paddingX) / 2.0);
 			}

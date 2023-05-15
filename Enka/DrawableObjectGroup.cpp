@@ -1,10 +1,6 @@
 #include "DrawableObjectGroup.h"
 
-DrawableObjectGroup::~DrawableObjectGroup()
-{
-	//for (auto childPointer : _childObjects)
-	//	delete childPointer;
-}
+DrawableObjectGroup::~DrawableObjectGroup(){}
 
 void DrawableObjectGroup::draw(sf::RenderWindow & renderWindow) const
 {

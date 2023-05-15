@@ -1,5 +1,5 @@
 #include "Deck.h"
-#include <algorithm>	// std::shuffle
+#include <algorithm>	
 
 Deck::Deck(const sf::Vector2f position, const sf::Font& font, std::default_random_engine& randomEngine)
 	: _position(position), InteractableRect(sf::IntRect(static_cast<int>(position.x), static_cast<int>(position.y), CARD_WIDTH, CARD_HEIGHT)),
@@ -35,22 +35,22 @@ Card* Deck::drawCard()
 
 void Deck::fillDeck()
 {
-	// Delete all elements
+	
 	for (auto p : _deck)
 		delete p;
 	_deck.clear();
 	
-	// for each colour
+
 	for (int colourID = 0; colourID < 4; colourID++) {
-		// Only 1x"0"
+	
 		addCard(0, colourID);
-		// Two of 1 to 9, Draw Two, Skip, and Reverse
+	
 		for (int faceValue = 1; faceValue <= 12; faceValue++) {
 			addCard(faceValue, colourID);
 			addCard(faceValue, colourID);
 		}
 	}
-	// Four of each Wild and Draw 4 Wild.
+	
 	for (int i = 0; i < 4; i++) {
 		addCard(13, 4);
 		addCard(14, 4);

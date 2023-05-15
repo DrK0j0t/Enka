@@ -29,7 +29,7 @@ TurnActionSequence<T>::~TurnActionSequence()
 template<class T>
 void TurnActionSequence<T>::setStartOfSequence(T * startAction)
 {
-	// Do nothing for generic case
+
 }
 
 template<class T>
@@ -58,12 +58,12 @@ TurnAction * TurnActionSequence<TurnAction>::getCurrentAction()
 
 void TurnActionSequence<TurnAction>::setStartOfSequence(TurnAction * startAction)
 {
-	// This should not happen, but if the method has been previously called force the sequence to dump everything.
+	
 	if (!_unorderedSequence.empty()) {
 		flushTurnActions();
 	}
 
-	// Set the currentAction to the start and parse the tree to find all pointers for ownership
+	
 	_currentAction = startAction;
 	loadAllPointers(_currentAction);
 }
@@ -107,8 +107,7 @@ RuleSet * TurnActionSequence<T>::getRuleSet()
 template<class T>
 void TurnActionSequence<T>::debugOutputTurnActionTree()
 {
-	// Do nothing for generic case.
-	//debugRecursiveNodeOutput(dynamic_cast<TurnAction*>(_currentAction), 0);
+
 }
 
 void TurnActionSequence<TurnAction>::debugOutputTurnActionTree()
@@ -190,7 +189,7 @@ void TurnActionSequence<T>::resolveEffect(TurnActionEffect effect)
 			togglePlayDirection();
 			break;
 		case TurnActionEffect::Nothing:
-			// Do nothing...
+	
 			break;
 		default:
 			std::cerr << "ERROR! Unknown TurnActionEffect missing function definition." << std::endl;
@@ -217,25 +216,25 @@ void TurnActionSequence<T>::drawCardAsActionFromData()
 template<class T>
 void TurnActionSequence<T>::drawCard()
 {
-	// Draw card from deck
+
 	Deck* deck = Game::getCurrentGame()->getDeck();
 	Card* drawnCard = deck->drawCard();
-	// store ID into storedData
+	
 	injectProperty("cardID", drawnCard->getUniqueCardID());
 	injectProperty("faceValueID", drawnCard->getFaceValueID());
 	injectProperty("colourID", drawnCard->getColourID());
-	// Add card to hand
+
 	Game::getCurrentGame()->getCurrentPlayer()->addCardToHand(drawnCard);
 }
 
 template<class T>
 void TurnActionSequence<T>::placeCard()
 {
-	// Get card from hand
+
 	Player* currentPlayer = Game::getCurrentGame()->getCurrentPlayer();
-	// Remove card from hand
+	
 	Card* removedCard = currentPlayer->removeCard(getPropertyValue("cardID"));
-	// Add card to pile
+
 	Game::getCurrentGame()->getRecentCardPile()->placeCard(removedCard);
 }
 
@@ -394,7 +393,7 @@ void TurnActionSequence<T>::passAllHands()
         hands.emplace_back(hand);
     }
 
-    // Shuffle the hands
+
     if(Game::getCurrentGame()->isIncreasing()) {
         auto movedHand = hands.at(0);
         hands.erase(hands.begin());
@@ -405,7 +404,7 @@ void TurnActionSequence<T>::passAllHands()
         hands.insert(hands.begin(), movedHand);
     }
 
-    // put all the cards into the hands again
+
     for(int playerID = 0; playerID < players.size(); playerID++) {
         for(auto card : hands.at(playerID)) {
             players.at(playerID)->addCardToHand(card);
@@ -457,7 +456,7 @@ void TurnActionSequence<T>::loadAllPointers(T * actionToAdd)
 {
 	if (actionToAdd == nullptr) return;
 
-	// If the pointer is not already in the list
+
 	if (std::find(_unorderedSequence.begin(), _unorderedSequence.end(), actionToAdd) != _unorderedSequence.end()) {
 		_unorderedSequence.emplace_back(actionToAdd);
 	}

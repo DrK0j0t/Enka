@@ -87,7 +87,7 @@ void CurrentGameInterface::handleMousePress(const sf::Vector2i & mousePosition, 
 	PlayerUpdateResult buttonState = _overlayManager->getUnoButtonsState();
 	applyPlayerUpdateResult(buttonState);
 	
-	// Handle player turn actions 
+
 	if (!_turnActionSequenceManager->hasActiveTurnAction()) {
 		if (_currentPlayerID == _bottomPlayer->getPlayerID()) {
 			if (_deck->isPositionInside(mousePosition)) {
@@ -96,7 +96,7 @@ void CurrentGameInterface::handleMousePress(const sf::Vector2i & mousePosition, 
 			else {
 				auto cardToPlay = _bottomPlayer->chooseCardFromClick(mousePosition);
 				auto topCard = _recentCardPile->getTopCard();
-				// Play if a valid move
+
 				std::vector<Card*> validMoves = _bottomPlayer->getValidMoves(topCard->getFaceValueID(), topCard->getColourID());
 				if (std::find(validMoves.begin(), validMoves.end(), cardToPlay) != validMoves.end()) {
 					_turnActionSequenceManager->setSequence(TurnActionFactory::playCardAsAction(
@@ -149,7 +149,7 @@ void CurrentGameInterface::handleKeyInput(const sf::Keyboard::Key key)
 		_turnActionSequenceManager->toggleDebugShowTaskActionNotes();
 	}
 	else {
-		// Note: The OverlayManager does not actually use the keys at all, but could be used in future.
+
 		_overlayManager->handleKeyInput(key);
 	}
 }
@@ -223,7 +223,7 @@ void CurrentGameInterface::moveToNextPlayer()
 void CurrentGameInterface::applyAntiUno(const int playerID)
 {
 	showGeneralOverlay("AntiUnoCalled" + std::to_string(playerID));
-	// Set to safe to prevent multiple anti-uno callouts.
+
 	_players.at(playerID)->setUnoState(Player::UNOState::Safe);
 	_players.at(playerID)->addCardToHand(_deck->drawCard());
 	_players.at(playerID)->addCardToHand(_deck->drawCard());

@@ -12,7 +12,7 @@ TurnActionSequence<TurnAction>* TurnActionFactory::playCardAsAction(const int pl
 	TurnAction* cardAction = cardIDToTurnAction(faceValueID, nextSequence);
 	TurnAction* placeCardAction = new TurnAction(cardAction, nextSequence, TurnActionEffect::PlaceCard, "Place Card");
 
-	// Link sequence in by setting the start.
+
 	nextSequence->setStartOfSequence(placeCardAction);
 	return nextSequence;
 }
@@ -30,7 +30,6 @@ TurnActionSequence<TurnAction>* TurnActionFactory::drawCardAsAction(const int pl
 	TurnDecisionAction* canPlayCard = new TurnDecisionAction(drawTillCanPlay, isForcedPlay, false, "cardPlayable", nextSequence, TurnActionEffect::IsCardPlayable, "Check is the Card Playable");
 	TurnAction* drawCard = new TurnAction(canPlayCard, nextSequence, TurnActionEffect::DrawCard, "Draw a Card");
 	
-	// Link sequence in by setting the start.
 	nextSequence->setStartOfSequence(drawCard);
 	return nextSequence;
 }

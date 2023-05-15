@@ -32,7 +32,7 @@ void OvalHoverButton::handleMouseMove(const sf::Vector2i & mousePosition)
 {
 	bool currentValue = _isHovered;
 	_isHovered = _bounds.contains(mousePosition);
-	// If the state changed
+
 	if (currentValue != _isHovered) {
 		_hoverShape->setBorder(_isHovered ? 10.0f : 0.0f, _bgColour);
 	}

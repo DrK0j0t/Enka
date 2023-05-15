@@ -24,7 +24,7 @@ TurnActionSequenceManager::~TurnActionSequenceManager()
 void TurnActionSequenceManager::update()
 {
 	if (hasActiveTurnAction()) {
-		// Tree Debug Output
+
 		if (_debugModeEnabled && _debugShowTaskActionNotes) {
 			TurnDecisionAction* decisionAction = dynamic_cast<TurnDecisionAction*>(getCurrentTurnAction());
 			if (decisionAction != nullptr) {
@@ -38,13 +38,13 @@ void TurnActionSequenceManager::update()
 		}
 		_currentSequence->iterateSequence();
 
-		// Force swap to queued sequence if there is one
+
 		if (_queuedSequence != nullptr) {
 			delete _currentSequence;
 			_currentSequence = _queuedSequence;
 			_queuedSequence = nullptr;
 		}
-		// If the sequence ended delete the sequence
+
 		else if (getCurrentTurnAction() == nullptr) {
 			delete _currentSequence;
 			_currentSequence = nullptr;

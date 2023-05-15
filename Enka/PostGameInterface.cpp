@@ -59,7 +59,7 @@ void PostGameInterface::handleButtonPress(const int actionID)
 	switch(actionID) {
 		case 1: _resultState = WndResultState::Menu; break;
 		case 3: 
-			for (auto player : _playerList) { player->resetScore(); } // flow through to next case
+			for (auto player : _playerList) { player->resetScore(); }
 		case 2: _resultState = WndResultState::Finished; break; 
 	}
 }
@@ -71,7 +71,6 @@ void PostGameInterface::initialiseInterface(const sf::Font & font, RuleSet * rul
 	background->setBorder(1, sf::Color::Black);
 	_staticElements->addChild(background);
 
-	// UNO! Text with shadow
 	DrawableText* unoShadow = new DrawableText("UNO!", font, 40, sf::Color::Black, sf::Text::Bold);
 	unoShadow->setOffset(sf::Vector2f(_bounds.width / 2 - 40, 10));
 	_staticElements->addChild(unoShadow);

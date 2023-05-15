@@ -15,7 +15,7 @@ LobbyInterface::LobbyInterface(const sf::IntRect & bounds, const sf::Font & font
 
 	initialiseBackground(bounds, font);
 	initialiseRuleOptions(bounds, font);
-	// Default to Nothing and Finished when StartGame is pressed.
+
 	_resultState = WndResultState::NothingState;
 }
 
@@ -39,7 +39,7 @@ void LobbyInterface::draw(sf::RenderWindow & renderWindow) const
 		lobbyPlayer->draw(renderWindow);
 	}
 
-	// Draw all dynamic strings for the rules.
+
 	for (const auto&[key, ruleString] : _ruleStrings) {
 		renderWindow.draw(ruleString);
 	}
@@ -229,7 +229,7 @@ void LobbyInterface::updateAllRuleLabels()
 std::vector<std::string> LobbyInterface::getRandomAINameList(std::default_random_engine& randomEngine)
 {
 	std::vector<std::string> names;
-	std::ifstream file("../AINameList.txt");
+	std::ifstream file("AINameList.txt");
 	if (!file.is_open()) {
 		std::cerr << "ERROR: Failed to load the AINameList.txt file." << std::endl;
 		names.push_back("LOADERROR");
@@ -308,7 +308,6 @@ void LobbyInterface::initialiseBackground(const sf::IntRect & bounds, const sf::
 	rulesTitle->setOffset(sf::Vector2f(bounds.width / 2 + 280, 120 - 30));
 	_background->addChild(rulesTitle);
 
-	// UNO! Text with shadow
 	DrawableText* unoShadow = new DrawableText("UNO!", font, 40, sf::Color::Black, sf::Text::Bold);
 	unoShadow->setOffset(sf::Vector2f(bounds.width / 2 - 40, 50 - 40));
 	_background->addChild(unoShadow);
@@ -325,11 +324,10 @@ void LobbyInterface::initialiseBackground(const sf::IntRect & bounds, const sf::
 	exclamationMark->setOffset(sf::Vector2f(bounds.width / 2 - 40 + 2 + 90, 48 - 40));
 	_background->addChild(exclamationMark);
 
-	// Credits
+
 	DrawableText* credits = new DrawableText("Developed by Peter Mitchell (2022)", font, 10, sf::Color::Black, sf::Text::Bold);
 	credits->setOffset(sf::Vector2f(bounds.width / 2 - 85, 65 - 10));
 	_background->addChild(credits);
 
-	// Force everything to position itself correctly if it was not.
 	_background->setPositionWithOffset(sf::Vector2f(bounds.left, bounds.top));
 }

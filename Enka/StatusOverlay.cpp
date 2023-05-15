@@ -70,10 +70,7 @@ void StatusOverlay::updateStatusLabel(const std::string& status)
 	_statusText->setText(status);
 	int strWidth = _statusText->getTextWidth();
 	_statusText->setPositionWithOffset(sf::Vector2f(_centre.x - strWidth / 2, _centre.y-40));
-	//_background->setPositionWithOffset(sf::Vector2f(_centre.x - 200, _centre.y - 45));
-	//_background->setSize(sf::Vector2f(_centre.x - strWidth / 2 - 10, _centre.y - 25));
-	//_timeOutText->setPositionWithOffset(sf::Vector2f(_centre.x - strWidth / 2 - 2, _centre.y - 60 + 2));
-	//_timeOutShadowText->setPositionWithOffset(sf::Vector2f(_centre.x - strWidth / 2, _centre.y - 60));
+
 }
 
 void StatusOverlay::updateTimeOutLabel()

@@ -28,7 +28,7 @@ void Card::setColour(const int colourID)
 {
 	_colourID = colourID;
 	_drawColour = getColourByID(_colourID);
-	// Remake the card.
+
 	_cardFront.release();
 	_cardFront = std::make_unique<CardFrontObjectGroup>(_faceValueID, colourID, sf::Vector2f(_bounds.left, _bounds.top), _font);
 }

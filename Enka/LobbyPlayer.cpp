@@ -42,9 +42,8 @@ LobbyPlayer::LobbyPlayer(const std::string & playerName, const Player::PlayerTyp
 LobbyPlayer::~LobbyPlayer()
 {
 	if (_drawableObject != nullptr) {
-		// All other objects are managed and deleted by this call.
+		
 		delete _drawableObject;
-		// Cleanup so they don't point to missing objects.
 		_background = nullptr;
 		_playerNameText = nullptr;
 		_aiStrategyText = nullptr;
@@ -104,7 +103,7 @@ void LobbyPlayer::updateHoverState(const sf::Vector2i & mousePosition)
 {
 	bool currentValue = _isHovered;
 	_isHovered = isPositionInside(mousePosition);
-	// If the state changed
+
 	if (currentValue != _isHovered) {
 		_background->setColour(_isHovered ? _bgHoverColour :_bgNotHoveredColour);
 	}

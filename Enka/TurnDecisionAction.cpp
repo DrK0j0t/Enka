@@ -18,7 +18,7 @@ TurnActionEffect TurnDecisionAction::getTurnAction()
 {
 	if (_hasRunOnce) { return TurnActionEffect::Nothing; }
 	_hasRunOnce = true;
-	// Call the base version with to actually perform the action.
+
 	return TurnAction::getTurnAction();
 }
 

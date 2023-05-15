@@ -70,7 +70,7 @@ void PauseInterface::initialiseInterface(const sf::IntRect & bounds, const sf::I
 	titleText->setOffset(sf::Vector2f(bounds.left + bounds.width / 2 - titleText->getTextWidth() / 2, bounds.top));
 	_interfaceBackground->addChild(titleText);
 
-	// LEFT SIZE TEXT
+
 	DrawableText* leftTextTitle = new DrawableText("Controls", font, 20, sf::Color::Black, sf::Text::Bold);
 	leftTextTitle->setOffset(sf::Vector2f(210, 300));
 	_interfaceBackground->addChild(leftTextTitle);
@@ -85,7 +85,6 @@ void PauseInterface::initialiseInterface(const sf::IntRect & bounds, const sf::I
 		_interfaceBackground->addChild(leftText);
 	}
 
-	// RIGHT SIDE TEXT
 	DrawableText* rightTextTitle = new DrawableText("Debug Controls (0 first)", font, 20, sf::Color::Black, sf::Text::Bold);
 	rightTextTitle->setOffset(sf::Vector2f(880, 230));
 	_interfaceBackground->addChild(rightTextTitle);
@@ -109,15 +108,14 @@ void PauseInterface::initialiseInterface(const sf::IntRect & bounds, const sf::I
 	_buttonList.emplace_back(Button(sf::IntRect(bounds.left + 6, bounds.top + 6 + 30+6+60, bounds.width - 12, 30), "Return to Lobby", 3, font));
 	_buttonList.emplace_back(Button(sf::IntRect(bounds.left + 6, bounds.top + 6 + (30+6)*2 + 60, bounds.width - 12, 30), "Quit Game", 2, font));
 
-	// Force all components to update to their correct positions.
 	_interfaceBackground->setPositionWithOffset(sf::Vector2f(gameBounds.left, gameBounds.top));
 }
 
 void PauseInterface::handleButtonAction(const int actionID)
 {
 	switch (actionID) {
-		case 1: _resultState = WndResultState::Finished; break; // gamePanel.setPauseState(false);
-		case 2: _resultState = WndResultState::Quit; break; // _gamePanel.quitGame();
-		case 3: _resultState = WndResultState::Menu; break; // gamePanel.showLobby();
+		case 1: _resultState = WndResultState::Finished; break;
+		case 2: _resultState = WndResultState::Quit; break; 
+		case 3: _resultState = WndResultState::Menu; break; 
 	}
 }
