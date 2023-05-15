@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b93dd722-e9f0-45ff-aced-b5221012a2fb}</ProjectGuid>
+    <RootNamespace>Enka</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\ProgramFiles\SFML-2.5.1\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\ProgramFiles\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\ProgramFiles\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\ProgramFiles\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\ProgramFiles\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\ProgramFiles\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\ProgramFiles\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\ProgramFiles\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AIPlayer.cpp" />
+    <ClCompile Include="AntiUnoButton.cpp" />
+    <ClCompile Include="ArcShape.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardBackGroupObject.cpp" />
+    <ClCompile Include="CardFrontObjectGroup.cpp" />
+    <ClCompile Include="ChallengeFailedOverlay.cpp" />
+    <ClCompile Include="ChallengeOverlay.cpp" />
+    <ClCompile Include="ChallengeSuccessOverlay.cpp" />
+    <ClCompile Include="CurrentGameInterface.cpp" />
+    <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="DrawableLine.cpp" />
+    <ClCompile Include="DrawableObjectGroup.cpp" />
+    <ClCompile Include="DrawableShape.cpp" />
+    <ClCompile Include="DrawableText.cpp" />
+    <ClCompile Include="EllipseShape.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="KeepOrPlayOverlay.cpp" />
+    <ClCompile Include="LobbyInterface.cpp" />
+    <ClCompile Include="LobbyPlayer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="OvalHoverButton.cpp" />
+    <ClCompile Include="OverlayManager.cpp" />
+    <ClCompile Include="PauseInterface.cpp" />
+    <ClCompile Include="PlayDirectionAnimation.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerFlashOverlay.cpp" />
+    <ClCompile Include="PlayerSelectionOverlay.cpp" />
+    <ClCompile Include="PolygonShape.cpp" />
+    <ClCompile Include="PostGameInterface.cpp" />
+    <ClCompile Include="RecentCardPile.cpp" />
+    <ClCompile Include="RuleSet.cpp" />
+    <ClCompile Include="SFMLGame.cpp" />
+    <ClCompile Include="StackChoiceOverlay.cpp" />
+    <ClCompile Include="StatusOverlay.cpp" />
+    <ClCompile Include="TurnAction.cpp" />
+    <ClCompile Include="TurnActionFactory.cpp" />
+    <ClCompile Include="TurnActionSequence.cpp" />
+    <ClCompile Include="TurnActionSequenceManager.cpp" />
+    <ClCompile Include="TurnActionSequenceUtility.cpp" />
+    <ClCompile Include="TurnDecisionAction.cpp" />
+    <ClCompile Include="UnoButton.cpp" />
+    <ClCompile Include="UNOCalledOverlay.cpp" />
+    <ClCompile Include="WildColourSelectionOverlay.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AIPlayer.h" />
+    <ClInclude Include="AntiUnoButton.h" />
+    <ClInclude Include="ArcShape.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="CardBackGroupObject.h" />
+    <ClInclude Include="CardFrontObjectGroup.h" />
+    <ClInclude Include="ChallengeFailedOverlay.h" />
+    <ClInclude Include="ChallengeOverlay.h" />
+    <ClInclude Include="ChallengeSuccessOverlay.h" />
+    <ClInclude Include="CurrentGameInterface.h" />
+    <ClInclude Include="Deck.h" />
+    <ClInclude Include="DrawableLine.h" />
+    <ClInclude Include="DrawableObject.h" />
+    <ClInclude Include="DrawableObjectGroup.h" />
+    <ClInclude Include="DrawableShape.h" />
+    <ClInclude Include="DrawableText.h" />
+    <ClInclude Include="EllipseShape.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameStateData.h" />
+    <ClInclude Include="GeneralOverlayInterface.h" />
+    <ClInclude Include="InteractableRect.h" />
+    <ClInclude Include="KeepOrPlayOverlay.h" />
+    <ClInclude Include="LobbyInterface.h" />
+    <ClInclude Include="LobbyPlayer.h" />
+    <ClInclude Include="OvalHoverButton.h" />
+    <ClInclude Include="OverlayManager.h" />
+    <ClInclude Include="PauseInterface.h" />
+    <ClInclude Include="PlayDirectionAnimation.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerFlashOverlay.h" />
+    <ClInclude Include="PlayerSelectionOverlay.h" />
+    <ClInclude Include="PlayerUpdateResult.h" />
+    <ClInclude Include="PolygonShape.h" />
+    <ClInclude Include="PostGameInterface.h" />
+    <ClInclude Include="RecentCardPile.h" />
+    <ClInclude Include="RuleSet.h" />
+    <ClInclude Include="SFMLGame.h" />
+    <ClInclude Include="StackChoiceOverlay.h" />
+    <ClInclude Include="StatusOverlay.h" />
+    <ClInclude Include="StringUtility.h" />
+    <ClInclude Include="TurnAction.h" />
+    <ClInclude Include="TurnActionEffect.h" />
+    <ClInclude Include="TurnActionFactory.h" />
+    <ClInclude Include="TurnActionSequence.h" />
+    <ClInclude Include="TurnActionSequenceManager.h" />
+    <ClInclude Include="TurnActionSequenceUtility.h" />
+    <ClInclude Include="TurnDecisionAction.h" />
+    <ClInclude Include="TurnDecisionOverlayInterface.h" />
+    <ClInclude Include="UnoButton.h" />
+    <ClInclude Include="UNOCalledOverlay.h" />
+    <ClInclude Include="WildColourSelectionOverlay.h" />
+    <ClInclude Include="WndInterface.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
